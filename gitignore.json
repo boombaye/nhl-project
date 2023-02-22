@@ -1,0 +1,5 @@
+**/node_modules/
+**/.kpt-pipeline
+**/.vscode
+**/.DS_Store
+**/.idea
