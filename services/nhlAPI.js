@@ -9,7 +9,7 @@ const getGameStatus = async () => {
         })
 
         const {games} = response.data.dates[0]
-        const liveGames = games.filter(game => game.status.codedGameState === '7')
+        const liveGames = games.filter(game => game.status.codedGameState === '3')
         return liveGames
     }catch(e){
         e.message = `Error at getGameStatus: ${e.message}`
@@ -26,7 +26,7 @@ const getLiveDataFeed = async (game,currentDateTime) => {
             url
         })
         const {allPlays} = response.data.liveData.plays
-        const currentLivePlays = allPlays.filter(play => play.about.dateTime <= currentDateTime)
+        const currentLivePlays = allPlays.filter(play => play.about.dateTime >= currentDateTime)
         return currentLivePlays
     }catch(e){
         e.message = `Error at getLiveDataFeed: ${e.message}`
